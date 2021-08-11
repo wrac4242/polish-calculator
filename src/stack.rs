@@ -22,4 +22,13 @@ impl Stack {
 			Some(s) => s
 		}
 	}
+
+	pub fn peak(&mut self) -> i64 {
+		let result = self.content.last_mut();
+
+		match result {
+			None => panic!("no item remaining"), // todo: improve error handling 
+			Some(s) => *s
+		}
+	}
 }
