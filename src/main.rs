@@ -3,22 +3,41 @@ use stack::Stack;
 mod operations;
 use std::io;
 
+fn help() {
+    println!();
+    println!("-----");
+    println!();
+    
+    println!("General controls are:");
+    println!("print: prints the top of the stack");
+    println!("exit: exits the calculator");
+    println!("switch: switches the top two items on the stack");
+    println!("help: prints this dialogue");
+    println!("pop: removes the top element and outputs it");
+
+    println!();
+    println!("-----");
+    println!();
+
+    println!("The operators are: ");
+    println!("add: takes the top two items on the stack and `second + top` is pushed back to the stack");
+    println!("sub: takes the top two items on the stack and `second - top` is pushed back to the stack");
+    println!("mul: takes the top two items on the stack and `second * top` is pushed back to the stack");
+    println!("div: takes the top two items on the stack and `second / top` is pushed back to the stack");
+    println!("mod: takes the top two items on the stack and `second % top` is pushed back to the stack");
+
+    println!("-----");
+    println!();
+}
+
 fn main() {
     println!("Initialising stack");
     let mut stack = Stack::new();
 
     println!("welcome to the polish calculator");
 
-    //gets input and sorts what is needed to do
-    /*
-    print outputs the top of the stack
-    exit gets out of the loop
-    add adds the top two values of the stack
-    sub, mul, div, mod -> subtract, multiply, divide, modulo, same as add practically
+    help();
 
-    anything else is checked if its a number, if it is, pushed to stack
-    if not will print an error
-    */
     loop {
         let mut line = String::new();
 
@@ -26,8 +45,12 @@ fn main() {
             .expect("Couldn't read line"); 
 
         match line.as_str().trim() {
-            "print" => {println!("{}", stack.peak());},
+            "print" => println!("{}", stack.peak()),
             "exit" => break,
+            "help" => help(),
+
+            "switch" => operations::switch(&mut stack),
+            "pop" => println!("{}", stack.pop()),
 
             "add" => operations::add(&mut stack),
             "sub" => operations::sub(&mut stack),
