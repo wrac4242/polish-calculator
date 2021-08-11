@@ -11,7 +11,7 @@ impl Stack {
 	}
 
 	pub fn push(&mut self, to_push: i64) {
-		self.push(to_push);
+		self.content.push(to_push);
 	}
 
 	pub fn pop(&mut self) -> i64 {
