@@ -27,3 +27,10 @@ pub fn modulo(stk: &mut Stack) {
 
 	stk.push(val1%val2);
 }
+
+pub fn div(stk: &mut Stack) {
+	let val1 = stk.pop();
+	let val2 = stk.pop();
+
+	stk.push(val1/val2);
+}
