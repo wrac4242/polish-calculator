@@ -31,7 +31,7 @@ fn help() {
 }
 
 fn main() {
-    println!("Initialising stack");
+    println!("Initializing stack");
     let mut stack = Stack::new();
 
     println!("welcome to the polish calculator");
